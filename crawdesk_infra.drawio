@@ -1,0 +1,72 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Infra Docker 3 Jours" id="njDaVd9h84_lFqyM2CiI">
+    <mxGraphModel dx="1140" dy="726" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="lb8nq19KkYl4MXdKhQoa-1" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;startSize=25;collapsible=0;" value="&amp;nbsp;CLIENTS (LAN Equipage - 192.168.10.0/24)" vertex="1">
+          <mxGeometry height="160" width="400" x="1053.999984741211" y="624.285758972168" as="geometry" />
+        </mxCell>
+        <mxCell id="lb8nq19KkYl4MXdKhQoa-2" parent="lb8nq19KkYl4MXdKhQoa-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;PC TEST&amp;nbsp;&lt;/b&gt;&lt;br&gt;192.168.10.50" vertex="1">
+          <mxGeometry height="60" width="180" x="120" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lb8nq19KkYl4MXdKhQoa-3" parent="lb8nq19KkYl4MXdKhQoa-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=16;" value="passerelle 192.168.10.254" vertex="1">
+          <mxGeometry height="30" width="60" x="30" y="65" as="geometry" />
+        </mxCell>
+        <mxCell id="lb8nq19KkYl4MXdKhQoa-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcd28;strokeColor=#d6b656;fontColor=#000000;strokeWidth=2;" value="&lt;b&gt;VM pfSense (Routeur / Pare-feu)&lt;/b&gt;&lt;br&gt;&lt;div&gt;LAN Clients : 192.168.10.254 | DMZ : 172.16.0.14 | LAN AD : 10.0.0.1&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="740" x="673.9999847412109" y="834.285758972168" as="geometry" />
+        </mxCell>
+        <mxCell id="lb8nq19KkYl4MXdKhQoa-5" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;startSize=25;collapsible=0;" value="ZONE DMZ (Réseau Serveurs - 172.16.0.0/28)" vertex="1">
+          <mxGeometry height="280.71" width="740" x="674" y="909.29" as="geometry" />
+        </mxCell>
+        <mxCell id="lb8nq19KkYl4MXdKhQoa-6" parent="lb8nq19KkYl4MXdKhQoa-5" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;LAMP 1 ou seulement code&lt;/b&gt;&lt;br&gt;(172.16.0.1)&lt;br&gt;───────&lt;br&gt;• nginx&lt;br&gt;• PHP (App Web)&lt;div&gt;• BDD&lt;/div&gt;" vertex="1">
+          <mxGeometry height="150" width="260" x="60" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="lb8nq19KkYl4MXdKhQoa-7" parent="lb8nq19KkYl4MXdKhQoa-5" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;b&gt;LAMP 2 ou seulement BDD&lt;/b&gt;&lt;br&gt;(172.16.0.2)&lt;br&gt;───────&lt;br&gt;• nginx&lt;br&gt;• PHP (App Web)&lt;br&gt;• BDD&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="150" width="260" x="420" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="lb8nq19KkYl4MXdKhQoa-8" parent="lb8nq19KkYl4MXdKhQoa-5" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=16;" value="passerelle&amp;nbsp;&lt;br&gt;172.16.0.14" vertex="1">
+          <mxGeometry height="50" width="80" x="330" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="lb8nq19KkYl4MXdKhQoa-9" edge="1" parent="1" source="lb8nq19KkYl4MXdKhQoa-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthoLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" target="lb8nq19KkYl4MXdKhQoa-4" value="Réseau LAN Clients">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1254" y="800" />
+              <mxPoint x="1044" y="800" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lb8nq19KkYl4MXdKhQoa-10" edge="1" parent="1" source="lb8nq19KkYl4MXdKhQoa-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthoLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" target="lb8nq19KkYl4MXdKhQoa-5" value="Réseau DMZ">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lb8nq19KkYl4MXdKhQoa-11" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;startSize=25;collapsible=0;" value="Réseaux serveurs AD et SNMP découpé en /29 10.0.0.0/29" vertex="1">
+          <mxGeometry height="160" width="400" x="603.9999847412109" y="624.285758972168" as="geometry" />
+        </mxCell>
+        <mxCell id="lb8nq19KkYl4MXdKhQoa-12" parent="lb8nq19KkYl4MXdKhQoa-11" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#647687;fontColor=#ffffff;strokeColor=#314354;" value="GRAFANA&amp;nbsp;&lt;br&gt;10.0.0.2" vertex="1">
+          <mxGeometry height="60" width="160" x="120" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="lb8nq19KkYl4MXdKhQoa-13" parent="lb8nq19KkYl4MXdKhQoa-11" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d80073;fontColor=#ffffff;strokeColor=#A50040;" value="SRV AD 1&amp;nbsp;&lt;div&gt;10.0.0.3&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="120" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lb8nq19KkYl4MXdKhQoa-14" parent="lb8nq19KkYl4MXdKhQoa-11" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=16;" value="passerelle 10.0.0.1" vertex="1">
+          <mxGeometry height="30" width="60" x="300" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="lb8nq19KkYl4MXdKhQoa-15" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthoLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" value="Réseau LAN AD&amp;nbsp;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="814" y="770" />
+              <mxPoint x="814" y="800" />
+              <mxPoint x="1044" y="800" />
+            </Array>
+            <mxPoint x="814" y="770" as="sourcePoint" />
+            <mxPoint x="1043.999984741211" y="819.985758972168" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lb8nq19KkYl4MXdKhQoa-16" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#56517e;fillColor=#d0cee2;align=center;verticalAlign=middle;rounded=0;" value="PROXMOX" vertex="1">
+          <mxGeometry height="50" width="120" x="973.9999847412109" y="564.285758972168" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
